@@ -1,7 +1,5 @@
 package edu.ncsu.csc216.service_wolf.model.manager;
 
-import java.util.ArrayList;
-
 import edu.ncsu.csc216.service_wolf.model.command.Command;
 import edu.ncsu.csc216.service_wolf.model.incident.Incident;
 import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
@@ -86,7 +84,7 @@ public class ServiceWolfManager {
 	 * Gets the manager's list of service groups
 	 * @return the list of service groups from the manager
 	 */
-	public ArrayList<ServiceGroup> getServiceGroupList(){
+	public String[] getServiceGroupList(){
 		return null;
 	}
 	/**
