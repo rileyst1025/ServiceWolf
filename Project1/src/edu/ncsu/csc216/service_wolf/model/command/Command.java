@@ -7,6 +7,8 @@ package edu.ncsu.csc216.service_wolf.model.command;
  */
 public class Command {
 
+	/**Holds the type of command**/
+	private CommandValue commandValue;
 	/**Gives further information about the reason for the command, not needed and set to null for some CommandValues**/
 	private String commandInformation;
 	/**The reason from the user for the command**/
@@ -21,7 +23,30 @@ public class Command {
 	 * @param commandMessage the message from the user to set
 	 */
 	public Command(CommandValue command, String commandInformation, String commandMessage) {
-		
+		if(command == null) {
+			throw new IllegalArgumentException("Invalid command value");
+		}
+		else {
+			commandValue = command;
+		}
+		if((commandValue == Command.CommandValue.ASSIGN || commandValue == Command.CommandValue.HOLD || commandValue == Command.CommandValue.RESOLVE ||
+				commandValue == Command.CommandValue.CANCEL) &&  commandInformation != null && !"".equals(commandMessage) || 
+				(commandValue == Command.CommandValue.INVESTIGATE || commandValue == Command.CommandValue.REOPEN) && commandInformation == null) {
+			this.commandInformation = commandInformation;
+		}
+		else if(commandValue == Command.CommandValue.ASSIGN || commandValue == Command.CommandValue.HOLD || commandValue == Command.CommandValue.RESOLVE ||
+				commandValue == Command.CommandValue.CANCEL) {
+			throw new IllegalArgumentException("Invalid information");
+		}
+		else {
+			throw new IllegalArgumentException("Information should be null");
+		}
+		if(commandMessage == null || "".equals(commandMessage)) {
+			throw new IllegalArgumentException("Invalid message");
+		}
+		else {
+			this.commandMessage = commandMessage;
+		}
 	}
 	
 	/**
@@ -29,7 +54,7 @@ public class Command {
 	 * @return the commandValue for the command
 	 */
 	public CommandValue getCommand() {
-		return null;
+		return commandValue;
 	}
 	
 	/**
@@ -37,7 +62,7 @@ public class Command {
 	 * @return the commandInformation for the command
 	 */
 	public String getCommandInformation() {
-		return null;
+		return commandInformation;
 	}
 	
 	/**
@@ -45,6 +70,6 @@ public class Command {
 	 * @return the commandMessage for the command
 	 */
 	public String getCommandMessage() {
-		return null;
+		return commandMessage;
 	}
 }
