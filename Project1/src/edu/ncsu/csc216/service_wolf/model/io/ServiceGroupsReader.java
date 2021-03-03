@@ -10,7 +10,7 @@ import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
  * @author rsthoma5
  *
  */
-public class ServiceGroupReader {
+public class ServiceGroupsReader {
 
 	/**
 	 * Reads in and returns an array of service groups and their assigned incidents from a file with the given filename

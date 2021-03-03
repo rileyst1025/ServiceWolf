@@ -21,7 +21,7 @@ public class Incident {
 	/**The name for the resolved state **/
 	public static final String RESOLVED_NAME = "Resolved";
 	/**The name for the cancel state **/
-	public static final String CANCELLED_NAME = "Canceled";
+	public static final String CANCELED_NAME = "Canceled";
 	/**The details for when incident is awaiting caller**/
 	public static final String HOLD_AWAITING_CALLER = "Awaiting Caller";
 	/**The details for when incident is awaiting change**/
