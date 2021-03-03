@@ -24,9 +24,9 @@ public class ServiceWolfManager {
 	/**
 	 * Constructs a new ServiceWolfManager with an empty service group list
 	 */
-	private void ServiceWolfManager() {
-		
-	}
+//	private void ServiceWolfManager() {
+//		
+//	}
 	/**
 	 * Creates an instance of ServiceWolfManager if once hasn't been created already
 	 * @return the ServiceWolfManager if it can be created, null if not

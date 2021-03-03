@@ -215,9 +215,9 @@ public class Incident {
 	 * @param caller the caller to set
 	 * @param message the message to add, will also go into the incident log
 	 */
-	public void Incident(String title, String caller, String message) {
-		
-	}
+//	public void Incident(String title, String caller, String message) {
+//		
+//	}
 	/**
 	 * Constructs an incident with the given id, state, title, caller, reopen count, owner, status details, and incident log
 	 * @param id the id to set
@@ -229,9 +229,9 @@ public class Incident {
 	 * @param statusDetails the status details to set
 	 * @param incidentLog the incident log to set
 	 */
-	public void Incident(int id, String state, String title, String caller, int reopenCount, String owner, String statusDetails, ArrayList<String> incidentLog) {
-		
-	}
+//	public void Incident(int id, String state, String title, String caller, int reopenCount, String owner, String statusDetails, ArrayList<String> incidentLog) {
+//		
+//	}
 	/**
 	 * Gets the incident's id
 	 * @return the id of the incident

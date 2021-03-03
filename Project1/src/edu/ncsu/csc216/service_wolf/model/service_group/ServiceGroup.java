@@ -19,9 +19,9 @@ public class ServiceGroup {
 	 * Constructs a new service group with the given name and an empty incident list
 	 * @param name the name to set
 	 */
-	public void ServiceGroup(String name) {
-		
-	}
+//	public void ServiceGroup(String name) {
+//		
+//	}
 	/**
 	 * Sets the counter for the incidents in the service group to the max id found in the service group plus 1
 	 */
