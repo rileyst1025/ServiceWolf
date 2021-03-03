@@ -17,7 +17,7 @@ public class Incident {
 	/**The name for the in progress state **/
 	public static final String IN_PROGRESS_NAME = "In progress";
 	/**The name for the on hold state **/
-	public static final String ON_HOLD = "On Hold";
+	public static final String ON_HOLD_NAME = "On Hold";
 	/**The name for the resolved state **/
 	public static final String RESOLVED_NAME = "Resolved";
 	/**The name for the cancel state **/
@@ -37,7 +37,7 @@ public class Incident {
 	/**The details for when an incident has been cancelled for being a duplicate**/
 	public static final String CANCELLATION_DUPLICATE = "Duplicate";
 	/**The details for when an incident is cancelled for being unnecessary**/
-	public static final String CACNELLATION_UNNECESSARY = "Unnecessary";
+	public static final String CANCELLATION_UNNECESSARY = "Unnecessary";
 	/**The details for when an incident is cancelled for not being an incident**/
 	public static final String CANCELLATION_NOT_AN_INCIDENT = "Not an Incident";
 	/**The details for when an incident is cancelled by the caller**/
