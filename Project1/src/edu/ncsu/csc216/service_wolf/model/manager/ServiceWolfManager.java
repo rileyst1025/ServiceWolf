@@ -15,7 +15,7 @@ import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
 public class ServiceWolfManager {
 	
 	/**The list of service groups in the manager**/
-	private ArrayList<ServiceGroup> serviceGroups;
+	private String[] serviceGroups;
 	/**The current selected service group**/
 	private ServiceGroup currentServiceGroup;
 	/**Holds the single allowed instance of ServiceWolfManager**/
@@ -24,9 +24,9 @@ public class ServiceWolfManager {
 	/**
 	 * Constructs a new ServiceWolfManager with an empty service group list
 	 */
-//	private void ServiceWolfManager() {
-//		
-//	}
+	private void ServiceWolfManager() {
+		
+	}
 	/**
 	 * Creates an instance of ServiceWolfManager if once hasn't been created already
 	 * @return the ServiceWolfManager if it can be created, null if not
