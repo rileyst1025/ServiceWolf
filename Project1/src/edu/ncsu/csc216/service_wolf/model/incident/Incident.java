@@ -67,14 +67,14 @@ public class Incident {
 	/**
 	 * Adds one to counter every time an incident is created
 	 */
-	private void incrementCounter() {
+	public static void incrementCounter() {
 		
 	}
 	/**
 	 * Sets the value for counter
 	 * @param count the value to set for counter
 	 */
-	private void setCounter(int count) {
+	public static void setCounter(int c) {
 		
 	}
 	/**Constant instance for incident in new state**/
