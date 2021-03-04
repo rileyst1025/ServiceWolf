@@ -22,7 +22,7 @@ public class ServiceWolfManager {
 	/**
 	 * Constructs a new ServiceWolfManager with an empty service group list
 	 */
-	private void ServiceWolfManager() {
+	private ServiceWolfManager() {
 		
 	}
 	/**
