@@ -13,6 +13,14 @@ public class ServiceGroupTest {
 	public void testServiceGroup() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * Tests that set service group name sets the name correctly
+	 */
+	@Test
+	public void testSetServiceGroupName() {
+		
+	}
 
 	/**
 	 * Tests that addIncident successfully adds a valid incident with the correct id

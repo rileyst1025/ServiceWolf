@@ -29,6 +29,13 @@ public class ServiceGroup {
 		
 	}
 	/**
+	 * Sets the service groups name to the given name
+	 * @param name the name to set
+	 */
+	public void setServiceGroupName(String name) {
+		
+	}
+	/**
 	 * Gets the service group's name
 	 * @return the name of the service group
 	 */
