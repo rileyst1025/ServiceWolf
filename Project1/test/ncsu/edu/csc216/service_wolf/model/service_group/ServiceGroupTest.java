@@ -11,7 +11,7 @@ public class ServiceGroupTest {
 	 */
 	@Test
 	public void testServiceGroup() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class ServiceGroupTest {
 	 */
 	@Test
 	public void testAddIncident() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -35,7 +35,7 @@ public class ServiceGroupTest {
 	 */
 	@Test
 	public void testGetIncidentById() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class ServiceGroupTest {
 	 */
 	@Test
 	public void testDeleteIncidentById() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -51,6 +51,6 @@ public class ServiceGroupTest {
 	 */
 	@Test
 	public void testExecuteCommand() {
-		fail("Not yet implemented");
+		
 	}
 }

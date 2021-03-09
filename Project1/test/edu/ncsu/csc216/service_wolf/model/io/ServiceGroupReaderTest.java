@@ -16,7 +16,7 @@ public class ServiceGroupReaderTest {
 	 */
 	@Test
 	public void testReadServiceGroupsFile() {
-		fail("Not yet implemented");
+		
 	}
 
 }

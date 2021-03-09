@@ -11,7 +11,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		fail("Not yet implemented");
+		
 	}
 
 	/**
@@ -19,7 +19,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testAddServiceGroup() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testEditServiceGroup() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -35,7 +35,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testDeleteServiceGroup() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testLoadServiceGroup() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testLoadFromfile() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
@@ -59,6 +59,6 @@ public class ServiceWolfManagerTest {
 	 */
 	@Test
 	public void testSaveToFile() {
-		fail("Not yet implemented");
+		
 	}
 }

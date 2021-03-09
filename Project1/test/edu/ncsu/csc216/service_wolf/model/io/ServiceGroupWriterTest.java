@@ -16,7 +16,7 @@ public class ServiceGroupWriterTest {
 	 */
 	@Test
 	public void testWriteServiceGroupsToFile() {
-		fail("Not yet implemented");
+		
 	}
 
 }
