@@ -40,7 +40,7 @@ public class ServiceGroupsReader {
 			}
 			return rlist;
 		} catch(FileNotFoundException e) {
-			throw new IllegalArgumentException("Unable to load file");
+			throw new IllegalArgumentException("Unable to load file.");
 		}
 	}
 	/**
