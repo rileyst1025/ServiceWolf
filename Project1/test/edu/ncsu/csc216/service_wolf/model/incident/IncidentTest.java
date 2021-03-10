@@ -29,7 +29,7 @@ public class IncidentTest {
 	/**The name for the new state **/
 	public static final String NEW_NAME = "New";
 	/**The name for the in progress state **/
-	public static final String IN_PROGRESS_NAME = "In progress";
+	public static final String IN_PROGRESS_NAME = "In Progress";
 	/**The name for the on hold state **/
 	public static final String ON_HOLD_NAME = "On Hold";
 	/**The name for the resolved state **/
@@ -59,7 +59,7 @@ public class IncidentTest {
 	/**Represents an unowned incident**/
 	public static final String UNOWNED = "Unowned";
 	/**Represents an incident with no status**/
-	public static final String NO_STATUS = "No status";
+	public static final String NO_STATUS = "No Status";
 	
 	@Before
 	public void setUp() throws Exception {
