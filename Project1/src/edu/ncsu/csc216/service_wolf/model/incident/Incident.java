@@ -72,7 +72,7 @@ public class Incident {
 	}
 	/**
 	 * Sets the value for counter
-	 * @param count the value to set for counter
+	 * @param c the value to set for counter
 	 */
 	public static void setCounter(int c) {
 		counter = c;
@@ -97,12 +97,12 @@ public class Incident {
 		 * Designates an incident to its proper handling of the given command based on its current state
 		 * @param command the command to apply to the incident
 		 */
-		public void updateState(Command command);
+		void updateState(Command command);
 		/**
 		 * Gets the name of the state the incident is currently in
 		 * @return the currentState of the incident
 		 */
-		public String getStateName();
+		String getStateName();
 	}
 	/**
 	 * Represents an incident in its new state
@@ -145,7 +145,7 @@ public class Incident {
 	private class InProgressState implements IncidentState {
 		/**
 		 * Updates the state of the incident based on the given command and functionality of the in progress incident
-		 * @param commmand the command to apply to the in progress incident
+		 * @param command the command to apply to the in progress incident
 		 */
 		public void updateState(Command command) {
 			if(Command.CommandValue.ASSIGN.equals(command.getCommand())) {
@@ -464,7 +464,7 @@ public class Incident {
 			throw new IllegalArgumentException("Incident cannot be created");
 		}
 		incidentLog.add(message);
-		return incidentLog.size()-1;
+		return incidentLog.size() - 1;
 	}
 	/**
 	 * Gets the incident's log messages

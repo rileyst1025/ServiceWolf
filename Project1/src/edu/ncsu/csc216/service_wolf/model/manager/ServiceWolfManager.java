@@ -124,7 +124,7 @@ public class ServiceWolfManager {
 		for(int i = 0; i < serviceGroups.size(); i++) {
 			if(serviceGroups.get(i).getServiceGroupName().equals(serviceGroupName)) {
 				currentServiceGroup = serviceGroups.get(i);
-				Incident.setCounter(currentServiceGroup.getIncidents().get(currentServiceGroup.getIncidents().size()-1).getId()+1);
+				Incident.setCounter(currentServiceGroup.getIncidents().get(currentServiceGroup.getIncidents().size() - 1).getId() + 1);
 			}
 		}
 	}

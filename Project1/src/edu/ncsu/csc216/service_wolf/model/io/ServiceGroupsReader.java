@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.service_wolf.model.io;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import edu.ncsu.csc216.service_wolf.model.incident.Incident;
@@ -29,12 +30,12 @@ public class ServiceGroupsReader {
 			}
 			fileReader.close();
 			ArrayList<ServiceGroup> rlist = new ArrayList<ServiceGroup>();
-			String[] ServiceGroupTokens = fileinfo.split("\\r?\\n[#]");
-			for(int i = 1; i < ServiceGroupTokens.length; i++) {
-				String[] IncidentTokens = ServiceGroupTokens[i].split("\\r?\\n?[*]");
-				ServiceGroup addgroup = processServiceGroup(IncidentTokens[0]);
-				for(int j = 1; j < IncidentTokens.length; j++) {
-					addgroup.addIncident(processIncident(IncidentTokens[j]));
+			String[] serviceGroupTokens = fileinfo.split("\\r?\\n[#]");
+			for(int i = 1; i < serviceGroupTokens.length; i++) {
+				String[] incidentTokens = serviceGroupTokens[i].split("\\r?\\n?[*]");
+				ServiceGroup addgroup = processServiceGroup(incidentTokens[0]);
+				for(int j = 1; j < incidentTokens.length; j++) {
+					addgroup.addIncident(processIncident(incidentTokens[j]));
 				}
 				rlist.add(addgroup);
 			}

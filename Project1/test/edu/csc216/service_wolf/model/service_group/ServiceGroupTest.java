@@ -1,4 +1,4 @@
-package ncsu.edu.csc216.service_wolf.model.service_group;
+package edu.csc216.service_wolf.model.service_group;
 
 import static org.junit.Assert.*;
 
@@ -10,14 +10,17 @@ import edu.ncsu.csc216.service_wolf.model.command.Command;
 import edu.ncsu.csc216.service_wolf.model.incident.Incident;
 import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
 
+/**
+ * Tests ServiceGroup and all of its associated methods
+ * @author rsthoma5
+ *
+ */
 public class ServiceGroupTest {
 
 	/**Title of test incident**/
 	private static final String TITLE = "Moodle down";
 	/**Caller of the test incident**/
 	private static final String CALLER = "User1";
-	/**Message of the test incident**/
-	private static final String MESSAGE = "Moodle won't load";
 	/**Owner of the test incident**/
 	private static final String OWNER = "Moodle Help Team";
 	/**Name of test service group**/
@@ -66,13 +69,13 @@ public class ServiceGroupTest {
 		assertEquals(0, s.getIncidents().size());
 		try {
 			ServiceGroup i = new ServiceGroup(null);
-			fail();
+			assertNotNull(i);
 		} catch(IllegalArgumentException e) {
 			assertEquals("Service group cannot be created", e.getMessage());
 		}
 		try {
 			ServiceGroup i = new ServiceGroup("");
-			fail();
+			assertNotNull(i);
 		} catch(IllegalArgumentException e) {
 			assertEquals("Service group cannot be created", e.getMessage());
 		}
@@ -95,12 +98,12 @@ public class ServiceGroupTest {
 	@Test
 	public void testAddIncident() {
 		ServiceGroup s = new ServiceGroup(SERVICE_GROUP_NAME);
-		ArrayList<String> IncidentLog = new ArrayList<String>();
-		IncidentLog.add("Moodles down pls help");
-		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident l = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
+		ArrayList<String> incidentLog = new ArrayList<String>();
+		incidentLog.add("Moodles down pls help");
+		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident l = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
 		s.addIncident(i);
 		assertEquals(s.getIncidents().size(), 1);
 		assertEquals(i, s.getIncidents().get(0));
@@ -127,11 +130,11 @@ public class ServiceGroupTest {
 	@Test
 	public void testGetIncidentById() {
 		ServiceGroup s = new ServiceGroup(SERVICE_GROUP_NAME);
-		ArrayList<String> IncidentLog = new ArrayList<String>();
-		IncidentLog.add("Moodles down pls help");
-		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
+		ArrayList<String> incidentLog = new ArrayList<String>();
+		incidentLog.add("Moodles down pls help");
+		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
 		s.addIncident(i);
 		s.addIncident(j);
 		s.addIncident(k);
@@ -147,11 +150,11 @@ public class ServiceGroupTest {
 	@Test
 	public void testDeleteIncidentById() {
 		ServiceGroup s = new ServiceGroup(SERVICE_GROUP_NAME);
-		ArrayList<String> IncidentLog = new ArrayList<String>();
-		IncidentLog.add("Moodles down pls help");
-		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
-		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, IncidentLog);
+		ArrayList<String> incidentLog = new ArrayList<String>();
+		incidentLog.add("Moodles down pls help");
+		Incident i = new Incident(2, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident j = new Incident(1, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
+		Incident k = new Incident(4, IN_PROGRESS_NAME, TITLE, CALLER, 0, OWNER, NO_STATUS, incidentLog);
 		s.addIncident(i);
 		s.addIncident(j);
 		s.addIncident(k);
@@ -171,9 +174,9 @@ public class ServiceGroupTest {
 	@Test
 	public void testExecuteCommand() {
 		ServiceGroup s = new ServiceGroup(SERVICE_GROUP_NAME);
-		ArrayList<String> IncidentLog = new ArrayList<String>();
-		IncidentLog.add("Moodles down pls help");
-		Incident i = new Incident(1, NEW_NAME, TITLE, CALLER, 0, UNOWNED, NO_STATUS, IncidentLog);
+		ArrayList<String> incidentLog = new ArrayList<String>();
+		incidentLog.add("Moodles down pls help");
+		Incident i = new Incident(1, NEW_NAME, TITLE, CALLER, 0, UNOWNED, NO_STATUS, incidentLog);
 		s.addIncident(i);
 		Command assign = new Command(Command.CommandValue.ASSIGN, OWNER, "Assigned Moodle Help Team");
 		Command hold = new Command(Command.CommandValue.HOLD, HOLD_AWAITING_CALLER, "Put on hold");

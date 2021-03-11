@@ -5,14 +5,14 @@ import org.junit.Test;
 
 /**
  * Tests the Command class construction
- * @author riley
+ * @author rsthoma5
  *
  */
 public class CommandTest {
-
-	public static String VALID_MESSAGE = "Message";
-	
-	public static String VALID_INFO = "Information";
+	/**Valid message for test command**/
+	public static final String VALID_MESSAGE = "Message";
+	/**Valid information for test command**/
+	public static final String VALID_INFO = "Information";
 	/**
 	 * Tests Command constructor for all command values and with valid and invalid paramters
 	 */
@@ -68,49 +68,49 @@ public class CommandTest {
 		}
 		try {
 			Command c = new Command(Command.CommandValue.ASSIGN, null, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid information", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.HOLD, null, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid information", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.RESOLVE, null, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid information", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.CANCEL, null, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid information", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.INVESTIGATE, VALID_INFO, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Information should be null", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.REOPEN, VALID_INFO, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Information should be null", e.getMessage());
 		}
 		try {
 			Command c = new Command(Command.CommandValue.ASSIGN, VALID_INFO, null);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid message", e.getMessage());
 		}
 		try {
 			Command c = new Command(null, VALID_INFO, VALID_MESSAGE);
-			fail();
+			assertNotNull(c);
 		} catch (IllegalArgumentException e) {
 			assertEquals("Invalid command value", e.getMessage());
 		}

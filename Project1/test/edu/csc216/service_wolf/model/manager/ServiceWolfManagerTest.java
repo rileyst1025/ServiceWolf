@@ -1,9 +1,14 @@
-package ncsu.edu.csc216.service_wolf.model.manager;
+package edu.csc216.service_wolf.model.manager;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Tests ServiceWolfManager and all its associated methods
+ * @author rsthoma5
+ *
+ */
 public class ServiceWolfManagerTest {
 
 	/**
