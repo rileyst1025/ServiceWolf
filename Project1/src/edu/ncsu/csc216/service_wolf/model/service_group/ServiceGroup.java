@@ -62,6 +62,7 @@ public class ServiceGroup {
 			if(this.incident.get(i).getId() > incident.getId()) {
 				this.incident.add(i, incident);
 				notadd = false;
+				break;
 			}
 			else if(this.incident.get(i).getId() == incident.getId()) {
 				throw new IllegalArgumentException("Incident cannot be created");
