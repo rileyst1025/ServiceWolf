@@ -58,9 +58,10 @@ public class ServiceWolfManager {
 	 */
 	private void addServiceGroupToListByName(ServiceGroup sg) {
 		boolean notadd = true;
-		for(int i = 0; i < serviceGroups.size(); i++) {
+		int sgidx = serviceGroups.size();
+		for(int i = 0; i < sgidx; i++) {
 			if(sg.getServiceGroupName().toLowerCase().compareTo(serviceGroups.get(i).getServiceGroupName().toLowerCase()) < 0){
-				serviceGroups.add(sg);
+				serviceGroups.add(i, sg);
 				notadd = false;
 			}
 		}
@@ -124,7 +125,12 @@ public class ServiceWolfManager {
 		for(int i = 0; i < serviceGroups.size(); i++) {
 			if(serviceGroups.get(i).getServiceGroupName().equals(serviceGroupName)) {
 				currentServiceGroup = serviceGroups.get(i);
-				Incident.setCounter(currentServiceGroup.getIncidents().get(currentServiceGroup.getIncidents().size() - 1).getId() + 1);
+				if(currentServiceGroup.getIncidents().size() > 0) {
+					Incident.setCounter(currentServiceGroup.getIncidents().get(currentServiceGroup.getIncidents().size() - 1).getId() + 1);
+				}
+				else {
+					Incident.setCounter(1);
+				}
 			}
 		}
 	}
@@ -162,22 +168,15 @@ public class ServiceWolfManager {
 	 */
 	public void loadFromFile(String filename) {
 		ArrayList<ServiceGroup> unsortlist = ServiceGroupsReader.readServiceGroupsFile(filename);
-		ServiceGroup tempbegin = unsortlist.get(0);
+		String tempbegin = unsortlist.get(0).getServiceGroupName();
 		for(int i = 0; i < unsortlist.size(); i++) {
 			addServiceGroup(unsortlist.get(i).getServiceGroupName());
-			for(int j = 0; j < serviceGroups.size(); j++) {
-				if(serviceGroups.get(j).getServiceGroupName() == unsortlist.get(i).getServiceGroupName()) {
-					for(int k = 0; k < unsortlist.get(i).getIncidents().size(); k++) {
-						currentServiceGroup.addIncident(unsortlist.get(i).getIncidents().get(k));
-					}
-				}
+			loadServiceGroup(unsortlist.get(i).getServiceGroupName());
+			for(int j = 0; j < unsortlist.get(i).getIncidents().size(); j++) {
+				currentServiceGroup.addIncident(unsortlist.get(i).getIncidents().get(j));
 			}
 		}
-		for(int i = 0; i < serviceGroups.size(); i++) {
-			if(serviceGroups.get(i).getServiceGroupName().equals(tempbegin.getServiceGroupName())){
-				currentServiceGroup = serviceGroups.get(i);
-			}
-		}
+		loadServiceGroup(tempbegin);
 	}
 	/**
 	 * Saves the managers service group list to a file with the given filename
@@ -194,6 +193,9 @@ public class ServiceWolfManager {
 	 * @return a 2D of the incidents in the current group
 	 */
 	public String[][] getIncidentsAsArray(){
+		if(currentServiceGroup == null) {
+			return null;
+		}
 		String[][] rarray = new String[currentServiceGroup.getIncidents().size()][4];
 		for(int i = 0; i < currentServiceGroup.getIncidents().size(); i++) {
 			rarray[i][0] = Integer.toString(currentServiceGroup.getIncidents().get(i).getId());

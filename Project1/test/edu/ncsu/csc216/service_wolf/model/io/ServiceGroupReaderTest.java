@@ -48,7 +48,7 @@ public class ServiceGroupReaderTest {
 		oitlist.add("I forgot my password and can't log into NC State accounts");
 		oitlist.add("OIT staff member on call with support");
 		a.get(0).addIncident(new Incident(2, "Canceled", "Piazza", "sesmith5", 0, "Unowned", "Not an Incident", csciti1list));
-		a.get(0).addIncident(new Incident(3, "New", "Moodle down", "sesmith5",0, "Unowned", "No Status", csciti2list));
+		a.get(0).addIncident(new Incident(3, "New", "Moodle down", "sesmith5", 0, "Unowned", "No Status", csciti2list));
 		a.get(0).addIncident(new Incident(4, "Resolved", "Set up Jenkins VMs", "sesmith5", 1, "cgurley", "Permanently Solved", csciti3list));
 		a.get(0).addIncident(new Incident(9, "In Progress", "Jenkins behind firewall", "sesmith5", 0, "cgurley", "No Status", csciti4list));
 		a.get(1).addIncident(new Incident(7, "On Hold", "Java not installed correctly", "zmgrosec", 0, "itecs1", "Awaiting Caller", itecslist));

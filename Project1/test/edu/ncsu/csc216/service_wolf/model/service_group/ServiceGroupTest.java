@@ -1,14 +1,10 @@
-package edu.csc216.service_wolf.model.service_group;
+package edu.ncsu.csc216.service_wolf.model.service_group;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
 import org.junit.Test;
-
 import edu.ncsu.csc216.service_wolf.model.command.Command;
 import edu.ncsu.csc216.service_wolf.model.incident.Incident;
-import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
 
 /**
  * Tests ServiceGroup and all of its associated methods
