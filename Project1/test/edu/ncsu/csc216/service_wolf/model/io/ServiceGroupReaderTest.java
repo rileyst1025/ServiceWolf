@@ -74,6 +74,156 @@ public class ServiceGroupReaderTest {
 		} catch (IllegalArgumentException e) {
 			assertEquals("Unable to load file.", e.getMessage());
 		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents4.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents5.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents6.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents7.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents8.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents9.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents10.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents11.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents12.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents13.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents14.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents15.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents16.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents17.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents18.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents19.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents20.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents21.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents22.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents23.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents24.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents25.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents26.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents27.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
+		try {
+			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("incidents4.txt");
+			assertEquals(1, l.size());
+		} catch (IllegalArgumentException e) {
+			assertEquals("Unable to load file.", e.getMessage());
+		}
 	}
 
 }

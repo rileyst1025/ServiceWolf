@@ -31,6 +31,9 @@ public class ServiceGroupsReader {
 			fileReader.close();
 			ArrayList<ServiceGroup> rlist = new ArrayList<ServiceGroup>();
 			String[] serviceGroupTokens = fileinfo.split("\\r?\\n[#]");
+			if(!"".equals(serviceGroupTokens[0])) {
+				throw new IllegalArgumentException("Unable to load file."); 
+			}
 			for(int i = 1; i < serviceGroupTokens.length; i++) {
 				String[] incidentTokens = serviceGroupTokens[i].split("\\r?\\n?[*]");
 				ServiceGroup addgroup = processServiceGroup(incidentTokens[0]);

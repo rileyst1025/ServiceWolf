@@ -835,5 +835,13 @@ public class IncidentTest {
 			assertEquals(0, c.getReopenCount());
 			assertEquals(CANCELLATION_DUPLICATE, c.getStatusDetails());
 		}
+		Incident newin = new Incident(TITLE, CALLER, MESSAGE);
+		newin.update(assign);
+		assertEquals(newin.getState(), IN_PROGRESS_NAME);
+		assertEquals(newin.getOwner(), OWNER);
+		Command callercanceled = new Command(Command.CommandValue.CANCEL, CANCELLATION_CALLER_CANCELLED, "Cancelled");
+		newin.update(callercanceled);
+		assertEquals(newin.getState(), CANCELED_NAME);
+		assertEquals(newin.getStatusDetails(), CANCELLATION_CALLER_CANCELLED);
 	}
 }
