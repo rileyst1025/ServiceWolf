@@ -64,6 +64,23 @@ public class ServiceWolfManagerTest {
 		} catch(IllegalArgumentException e) {
 			assertEquals("Invalid service group name.", e.getMessage());
 		}
+		sw.resetManager();
+		sw = ServiceWolfManager.getInstance();
+		try {
+			sw.editServiceGroup(null);
+		} catch(IllegalArgumentException e) {
+			assertEquals("Invalid service group name.", e.getMessage());
+		}
+		try {
+			sw.editServiceGroup("");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Invalid service group name.", e.getMessage());
+		}
+		sw.addServiceGroup("ServerGroup");
+		sw.loadFromFile("test-files/incidents1.txt");
+		assertEquals(4, sw.getServiceGroupList().length);
+		sw.addServiceGroup("ECE IT");
+		assertEquals(5, sw.getServiceGroupList().length);
 	}
 	
 	/**

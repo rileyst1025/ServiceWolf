@@ -64,6 +64,7 @@ public class ServiceWolfManager {
 			if(sg.getServiceGroupName().toLowerCase().compareTo(serviceGroups.get(i).getServiceGroupName().toLowerCase()) < 0){
 				serviceGroups.add(i, sg);
 				notadd = false;
+				break;
 			}
 		}
 		if(notadd) {
