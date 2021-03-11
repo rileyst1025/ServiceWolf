@@ -1,5 +1,8 @@
 package edu.ncsu.csc216.service_wolf.model.io;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import edu.ncsu.csc216.service_wolf.model.service_group.ServiceGroup;
 
@@ -16,6 +19,17 @@ public class ServiceGroupWriter {
 	 * @param grouplist the list of service groups to write to the file
 	 */
 	public static void writeServiceGroupsToFile(String filename, ArrayList<ServiceGroup> grouplist) {
-		
+		try {
+			PrintStream fileWriter = new PrintStream(new File(filename));
+			for (int i = 0; i < grouplist.size(); i++) {
+			    fileWriter.println("# " + grouplist.get(i).getServiceGroupName());
+			    for(int j = 0; j < grouplist.get(i).getIncidents().size(); j++) {
+				    fileWriter.println(grouplist.get(i).getIncidents().get(j).toString());
+			    }
+			}
+			fileWriter.close();
+		} catch(FileNotFoundException e) {
+			throw new IllegalArgumentException("Unable to save file.");
+		}
 	}
 }
