@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.ncsu.csc216.service_wolf.model.command.Command;
+
 /**
  * Tests ServiceWolfManager and all its associated methods
  * @author rsthoma5
@@ -34,6 +36,7 @@ public class ServiceWolfManagerTest {
 	@Test
 	public void testAddServiceGroup() {
 		ServiceWolfManager sw = ServiceWolfManager.getInstance();
+		assertNull(sw.getIncidentById(1));
 		sw.addServiceGroup("Awesome Group");
 		assertEquals(1, sw.getServiceGroupList().length);
 		assertEquals("Awesome Group", sw.getServiceGroupList()[0]);
@@ -124,12 +127,19 @@ public class ServiceWolfManagerTest {
 	@Test
 	public void testDeleteServiceGroup() {
 		ServiceWolfManager sw = ServiceWolfManager.getInstance();
+		assertNull(sw.getIncidentsAsArray());
 		try {
 			sw.deleteServiceGroup();
 		} catch(IllegalArgumentException e) {
 			assertEquals(0, sw.getServiceGroupList().length);
 		}
 		sw.addServiceGroup("Cool Group");
+		sw.addIncidentToServiceGroup("title", "caller", "message");
+		Command assign = new Command(Command.CommandValue.ASSIGN, "owner", "message");
+		sw.executeCommand(1, assign);
+		assertEquals("In Progress", sw.getIncidentsAsArray()[0][1]);
+		sw.deleteIncidentById(1);
+		assertEquals(0, sw.getIncidentsAsArray().length);
 		sw.addServiceGroup("Fine Group");
 		sw.addServiceGroup("Very Cool Group");
 		assertEquals(3, sw.getServiceGroupList().length);
@@ -224,8 +234,7 @@ public class ServiceWolfManagerTest {
 		assertEquals("In Progress", sw.getIncidentsAsArray()[0][1]);
 		assertEquals("Forgot password", sw.getIncidentsAsArray()[0][2]);
 		assertEquals("No Status", sw.getIncidentsAsArray()[0][3]);
-		sw.resetManager();
-		sw = ServiceWolfManager.getInstance();
+		sw.clearServiceGroups();
 		sw.loadFromFile("test-files/incidents3.txt");
 		assertEquals("CSC IT", sw.getServiceGroupList()[0]);
 		assertEquals("ITECS", sw.getServiceGroupList()[1]);
@@ -273,9 +282,19 @@ public class ServiceWolfManagerTest {
 	@Test
 	public void testSaveToFile() {
 		ServiceWolfManager sw = ServiceWolfManager.getInstance();
+		try {
+			sw.saveToFile("file");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Unable to save file.", e.getMessage());
+		}
 		sw.addServiceGroup("Cool Group");
 		sw.addServiceGroup("Dope Group");
 		sw.loadServiceGroup("Cool Group");
+		try {
+			sw.saveToFile("file");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Unable to save file.", e.getMessage());
+		}
 		sw.addIncidentToServiceGroup("Cool Group i1", "Cool Group Caller1", "Cool Group Message1");
 		sw.addIncidentToServiceGroup("Cool Group i2", "Cool Group Caller2", "Cool Group Message2");
 		sw.loadServiceGroup("Dope Group");
