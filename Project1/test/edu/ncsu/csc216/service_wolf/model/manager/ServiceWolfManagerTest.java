@@ -73,7 +73,6 @@ public class ServiceWolfManagerTest {
 	public void testEditServiceGroup() {
 		ServiceWolfManager sw = ServiceWolfManager.getInstance();
 		sw.addServiceGroup("Cool Group");
-		sw.loadServiceGroup("Cool Group");
 		sw.addIncidentToServiceGroup("i1", "caller1", "message1");
 		sw.addIncidentToServiceGroup("i2", "caller2", "message2");
 		sw.editServiceGroup("Awesome Group");
@@ -108,6 +107,11 @@ public class ServiceWolfManagerTest {
 	@Test
 	public void testDeleteServiceGroup() {
 		ServiceWolfManager sw = ServiceWolfManager.getInstance();
+		try {
+			sw.deleteServiceGroup();
+		} catch(IllegalArgumentException e) {
+			assertEquals(0, sw.getServiceGroupList().length);
+		}
 		sw.addServiceGroup("Cool Group");
 		sw.addServiceGroup("Fine Group");
 		sw.addServiceGroup("Very Cool Group");
@@ -115,15 +119,6 @@ public class ServiceWolfManagerTest {
 		assertEquals("Cool Group", sw.getServiceGroupList()[0]);
 		assertEquals("Fine Group", sw.getServiceGroupList()[1]);
 		assertEquals("Very Cool Group", sw.getServiceGroupList()[2]);
-		try {
-			sw.deleteServiceGroup();
-		} catch(IllegalArgumentException e) {
-			assertEquals("No service group selected.", e.getMessage());
-			assertEquals(3, sw.getServiceGroupList().length);
-			assertEquals("Cool Group", sw.getServiceGroupList()[0]);
-			assertEquals("Fine Group", sw.getServiceGroupList()[1]);
-			assertEquals("Very Cool Group", sw.getServiceGroupList()[2]);
-		}
 		sw.loadServiceGroup("Fine Group");
 		sw.deleteServiceGroup();
 		assertEquals(2, sw.getServiceGroupList().length);

@@ -51,6 +51,7 @@ public class ServiceWolfManager {
 		checkDuplicateServiceName(serviceGroupName);
 		ServiceGroup addgroup = new ServiceGroup(serviceGroupName);
 		addServiceGroupToListByName(addgroup);
+		loadServiceGroup(serviceGroupName);
 	}
 	/**
 	 * Adds the given service group to the manager's service group list
