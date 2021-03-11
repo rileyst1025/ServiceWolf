@@ -55,7 +55,7 @@ public class IncidentTest {
 	/**The details for when an incident is cancelled for not being an incident**/
 	public static final String CANCELLATION_NOT_AN_INCIDENT = "Not an Incident";
 	/**The details for when an incident is cancelled by the caller**/
-	public static final String CANCELLATION_CALLER_CANCELLED = "Caller Cancelled";
+	public static final String CANCELLATION_CALLER_CANCELLED = "Caller Canceled";
 	/**Represents an unowned incident**/
 	public static final String UNOWNED = "Unowned";
 	/**Represents an incident with no status**/
