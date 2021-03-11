@@ -359,8 +359,11 @@ public class Incident {
 				CANCELLATION_UNNECESSARY.equals(statusDetails) || CANCELLATION_NOT_AN_INCIDENT.equals(statusDetails) || CANCELLATION_CALLER_CANCELLED.equals(statusDetails))) {
 			currentState = canceledState;
 		}
-		else {
+		else if(currentState == null){
 			throw new IllegalArgumentException("Incident cannot be created");
+		}
+		else {
+			throw new IllegalArgumentException("State could not be updated");
 		}
 	}
 	/**

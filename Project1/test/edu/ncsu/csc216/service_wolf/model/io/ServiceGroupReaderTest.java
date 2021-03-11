@@ -68,6 +68,23 @@ public class ServiceGroupReaderTest {
 		assertEquals(a.get(2).getServiceGroupName(), t.get(2).getServiceGroupName());
 		assertEquals(a.get(2).getIncidents().get(0).getTitle(), t.get(2).getIncidents().get(0).getTitle());
 		assertEquals(a.get(2).getIncidents().get(0).getIncidentLogMessages(), t.get(2).getIncidents().get(0).getIncidentLogMessages());
+		ArrayList<ServiceGroup> t2 = ServiceGroupsReader.readServiceGroupsFile("test-files/incidents1.txt");
+		ArrayList<ServiceGroup> a2 = new ArrayList<ServiceGroup>();
+		a2.add(new ServiceGroup("CSC IT"));
+		a2.get(0).addIncident(new Incident(2, "Canceled", "Piazza", "sesmith5", 0, "Unowned", "Not an Incident", csciti1list));
+		a2.get(0).addIncident(new Incident(3, "New", "Moodle down", "sesmith5", 0, "Unowned", "No Status", csciti2list));
+		a2.get(0).addIncident(new Incident(4, "Resolved", "Set up Jenkins VMs", "sesmith5", 1, "cgurley", "Permanently Solved", csciti3list));
+		a2.get(0).addIncident(new Incident(9, "In Progress", "Jenkins behind firewall", "sesmith5", 0, "cgurley", "No Status", csciti4list));
+		assertEquals(a2.get(0).getServiceGroupName(), t.get(0).getServiceGroupName());
+		assertEquals(a2.get(0).getIncidents().get(0).getTitle(), t2.get(0).getIncidents().get(0).getTitle());
+		assertEquals(a2.get(0).getIncidents().get(0).getIncidentLogMessages(), t2.get(0).getIncidents().get(0).getIncidentLogMessages());
+		assertEquals(a2.get(0).getIncidents().get(1).getTitle(), t2.get(0).getIncidents().get(1).getTitle());
+		assertEquals(a2.get(0).getIncidents().get(1).getIncidentLogMessages(), t2.get(0).getIncidents().get(1).getIncidentLogMessages());
+		assertEquals(a2.get(0).getIncidents().get(2).getTitle(), t2.get(0).getIncidents().get(2).getTitle());
+		assertEquals(a2.get(0).getIncidents().get(2).getIncidentLogMessages(), t2.get(0).getIncidents().get(2).getIncidentLogMessages());
+		assertEquals(a2.get(0).getIncidents().get(3).getTitle(), t2.get(0).getIncidents().get(3).getTitle());
+		assertEquals(a2.get(0).getIncidents().get(3).getIncidentLogMessages(), t2.get(0).getIncidents().get(3).getIncidentLogMessages());
+		assertEquals(4, t2.get(0).getIncidents().size());
 		try {
 			ArrayList<ServiceGroup> l = ServiceGroupsReader.readServiceGroupsFile("not_a_file.not");
 			assertEquals(1, l.size());
