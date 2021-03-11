@@ -31,21 +31,31 @@ public class ServiceGroupsReader {
 			fileReader.close();
 			ArrayList<ServiceGroup> rlist = new ArrayList<ServiceGroup>();
 			String[] serviceGroupTokens = fileinfo.split("\\r?\\n[#]");
-			if(!"".equals(serviceGroupTokens[0])) {
-				throw new IllegalArgumentException("Unable to load file."); 
+			String[] newTokens = new String[serviceGroupTokens.length-1];
+			for(int i = 0; i < newTokens.length; i++) {
+				newTokens[i] = serviceGroupTokens[i+1];
 			}
-			for(int i = 1; i < serviceGroupTokens.length; i++) {
+			serviceGroupTokens = newTokens;
+			for(int i = 0; i < serviceGroupTokens.length; i++) {
 				String[] incidentTokens = serviceGroupTokens[i].split("\\r?\\n?[*]");
-				ServiceGroup addgroup = processServiceGroup(incidentTokens[0]);
-				for(int j = 1; j < incidentTokens.length; j++) {
-					addgroup.addIncident(processIncident(incidentTokens[j]));
+				try {
+					ServiceGroup addgroup = processServiceGroup(incidentTokens[0]);
+					for(int j = 1; j < incidentTokens.length; j++) {
+						try {
+							addgroup.addIncident(processIncident(incidentTokens[j]));
+						} catch(IllegalArgumentException ex2) {
+							
+						}
+					}
+					rlist.add(addgroup);
+				} catch(IllegalArgumentException ex) {
+					
 				}
-				rlist.add(addgroup);
 			}
 			return rlist;
 		} catch(FileNotFoundException e) {
 			throw new IllegalArgumentException("Unable to load file.");
-		}
+		} 
 	}
 	/**
 	 * Creates a service group based on the given line of text
@@ -68,6 +78,10 @@ public class ServiceGroupsReader {
 		for(int k = 1; k < incidentLines.length; k++) {
 			messageLog.add(incidentLines[k].substring(1).trim());
 		}
-		return new Incident(Integer.parseInt(incidentParams[0].trim()), incidentParams[1], incidentParams[2], incidentParams[3], Integer.parseInt(incidentParams[4]), incidentParams[5], incidentParams[6], messageLog);
+		try {
+			return new Incident(Integer.parseInt(incidentParams[0].trim()), incidentParams[1], incidentParams[2], incidentParams[3], Integer.parseInt(incidentParams[4]), incidentParams[5], incidentParams[6], messageLog);
+		} catch (IndexOutOfBoundsException ioub) {
+			throw new IllegalArgumentException();
+		}
 	}
 }
