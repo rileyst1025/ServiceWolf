@@ -298,7 +298,7 @@ public class Incident {
 		setReopenCount(reopenCount);
 		setOwner(owner);
 		setStatusDetails(statusDetails);
-		if(incidentLog.size() == 0 || incidentLog == null) {
+		if(incidentLog == null || incidentLog.size() == 0) {
 			throw new IllegalArgumentException("Incident cannot be created");
 		}
 		for(int i = 0; i < incidentLog.size(); i++) {
