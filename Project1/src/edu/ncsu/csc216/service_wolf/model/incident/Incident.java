@@ -363,7 +363,7 @@ public class Incident {
 			throw new IllegalArgumentException("Incident cannot be created");
 		}
 		else {
-			throw new IllegalArgumentException("State could not be updated");
+			throw new IllegalArgumentException("State could not be updated from " + currentState.getStateName());
 		}
 	}
 	/**
