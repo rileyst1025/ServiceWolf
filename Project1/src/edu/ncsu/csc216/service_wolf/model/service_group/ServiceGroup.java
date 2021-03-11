@@ -27,7 +27,12 @@ public class ServiceGroup {
 	 * Sets the counter for the incidents in the service group to the max id found in the service group plus 1
 	 */
 	public void setIncidentCounter() {
-		Incident.setCounter(incident.get(incident.size() - 1).getId() + 1);
+		if(incident.size() != 0) {
+			Incident.setCounter(incident.get(incident.size() - 1).getId() + 1);
+		}
+		else {
+			Incident.setCounter(1);
+		}
 	}
 	/**
 	 * Sets the service groups name to the given name
