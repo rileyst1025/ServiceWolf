@@ -75,7 +75,7 @@ public class ServiceGroupReaderTest {
 			assertEquals("Unable to load file.", e.getMessage());
 		}
 		ArrayList<ServiceGroup> msgn = ServiceGroupsReader.readServiceGroupsFile("test-files/incidents4.txt");
-		assertEquals(2, msgn.size());
+		assertEquals(0, msgn.size());
 		ArrayList<ServiceGroup> mid = ServiceGroupsReader.readServiceGroupsFile("test-files/incidents5.txt");
 		assertEquals(0, mid.size());
 		ArrayList<ServiceGroup> isn = ServiceGroupsReader.readServiceGroupsFile("test-files/incidents6.txt");

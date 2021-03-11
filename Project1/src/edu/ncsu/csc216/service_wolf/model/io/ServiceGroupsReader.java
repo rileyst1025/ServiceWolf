@@ -31,6 +31,9 @@ public class ServiceGroupsReader {
 			fileReader.close();
 			ArrayList<ServiceGroup> rlist = new ArrayList<ServiceGroup>();
 			String[] serviceGroupTokens = fileinfo.split("\\r?\\n[#]");
+			if(!"".equals(serviceGroupTokens[0])) {
+				return new ArrayList<ServiceGroup>();
+			}
 			String[] newTokens = new String[serviceGroupTokens.length-1];
 			for(int i = 0; i < newTokens.length; i++) {
 				newTokens[i] = serviceGroupTokens[i+1];
