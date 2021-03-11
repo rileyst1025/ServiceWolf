@@ -44,12 +44,12 @@ public class ServiceGroupsReader {
 						try {
 							addgroup.addIncident(processIncident(incidentTokens[j]));
 						} catch(IllegalArgumentException ex2) {
-							
+							return new ArrayList<ServiceGroup>();
 						}
 					}
 					rlist.add(addgroup);
 				} catch(IllegalArgumentException ex) {
-					
+					return new ArrayList<ServiceGroup>();
 				}
 			}
 			return rlist;
