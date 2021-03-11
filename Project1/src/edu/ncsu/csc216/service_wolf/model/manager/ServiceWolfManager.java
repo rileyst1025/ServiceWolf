@@ -124,8 +124,10 @@ public class ServiceWolfManager {
 	 * @param serviceGroupName the name of the service group to make the current service group
 	 */
 	public void loadServiceGroup(String serviceGroupName) {
+		boolean notadd = true;
 		for(int i = 0; i < serviceGroups.size(); i++) {
 			if(serviceGroups.get(i).getServiceGroupName().equals(serviceGroupName)) {
+				notadd = false;
 				currentServiceGroup = serviceGroups.get(i);
 				if(currentServiceGroup.getIncidents().size() > 0) {
 					Incident.setCounter(currentServiceGroup.getIncidents().get(currentServiceGroup.getIncidents().size() - 1).getId() + 1);
@@ -134,6 +136,9 @@ public class ServiceWolfManager {
 					Incident.setCounter(1);
 				}
 			}
+		}
+		if(notadd) {
+			throw new IllegalArgumentException("Cannot find Service Group");
 		}
 	}
 	/**

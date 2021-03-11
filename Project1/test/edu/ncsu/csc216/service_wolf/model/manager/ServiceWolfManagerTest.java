@@ -164,8 +164,11 @@ public class ServiceWolfManagerTest {
 		assertEquals("Cool Group", sw.getServiceGroupName());
 		sw.addIncidentToServiceGroup("Cool Group i1", "Cool Group Caller1", "Cool Group Message1");
 		sw.addIncidentToServiceGroup("Cool Group i2", "Cool Group Caller2", "Cool Group Message2");
-		sw.loadServiceGroup("Dope Group");
-		assertEquals("Cool Group", sw.getServiceGroupName());
+		try {
+			sw.loadServiceGroup("Dope Group");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Cool Group", sw.getServiceGroupName());
+		}
 		sw.loadServiceGroup("Fine Group");
 		assertEquals(0, sw.getIncidentsAsArray().length);
 		assertEquals("Fine Group", sw.getServiceGroupName());
