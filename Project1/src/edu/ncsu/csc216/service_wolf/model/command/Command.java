@@ -30,7 +30,7 @@ public class Command {
 			commandValue = command;
 		}
 		if((commandValue == Command.CommandValue.ASSIGN || commandValue == Command.CommandValue.HOLD || commandValue == Command.CommandValue.RESOLVE ||
-				commandValue == Command.CommandValue.CANCEL) &&  commandInformation != null && !"".equals(commandMessage) || 
+				commandValue == Command.CommandValue.CANCEL) &&  commandInformation != null && !"".equals(commandInformation) || 
 				(commandValue == Command.CommandValue.INVESTIGATE || commandValue == Command.CommandValue.REOPEN) && commandInformation == null) {
 			this.commandInformation = commandInformation;
 		}
