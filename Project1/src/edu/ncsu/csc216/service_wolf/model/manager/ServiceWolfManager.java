@@ -211,9 +211,11 @@ public class ServiceWolfManager {
 	 * @return the incident from the current service group with the given id
 	 */
 	public Incident getIncidentById(int id) {
-		for(int i = 0; i < currentServiceGroup.getIncidents().size(); i++) {
-			if(currentServiceGroup.getIncidents().get(i).getId() == id) {
-				return currentServiceGroup.getIncidents().get(i);
+		if(currentServiceGroup != null) {
+			for(int i = 0; i < currentServiceGroup.getIncidents().size(); i++) {
+				if(currentServiceGroup.getIncidents().get(i).getId() == id) {
+					return currentServiceGroup.getIncidents().get(i);
+				}
 			}
 		}
 		return null;
@@ -224,14 +226,18 @@ public class ServiceWolfManager {
 	 * @param command the command to execute
 	 */
 	public void executeCommand(int id, Command command) {
-		currentServiceGroup.executeCommand(id, command);
+		if(currentServiceGroup != null) {
+			currentServiceGroup.executeCommand(id, command);
+		}
 	}
 	/**
 	 * Deletes the incident from the current service group with the given id
 	 * @param id the id of the incident to delete
 	 */
 	public void deleteIncidentById(int id) {
-		currentServiceGroup.deleteIncidentById(id);
+		if(currentServiceGroup != null) {
+			currentServiceGroup.deleteIncidentById(id);
+		}
 	}
 	/**
 	 * Adds a new incident with the given title, caller, and message to the current service group
@@ -240,8 +246,10 @@ public class ServiceWolfManager {
 	 * @param message the message of the incident to add
 	 */
 	public void addIncidentToServiceGroup(String title, String caller, String message) {
-		Incident addi = new Incident(title, caller, message);
-		currentServiceGroup.addIncident(addi);
+		if(currentServiceGroup != null) {
+			Incident addi = new Incident(title, caller, message);
+			currentServiceGroup.addIncident(addi);
+		}
 	}
 	/**
 	 * Resets the manager by setting the singleton to null
