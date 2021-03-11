@@ -476,7 +476,7 @@ public class Incident {
 	public String getIncidentLogMessages() {
 		String rstring = "";
 		for(int i = 0; i < incidentLog.size(); i++) {
-			rstring += "- " + incidentLog.get(i) + "\n";
+			rstring += "\n- " + incidentLog.get(i);
 		}
 		return rstring;
 	}
@@ -485,7 +485,7 @@ public class Incident {
 	 */
 	@Override
 	public String toString() {
-		return "* " + incidentId + "," + currentState.getStateName() + "," + title + "," + caller + "," + reopenCount + "," + owner + "," + statusDetails + "\n" + getIncidentLogMessages();
+		return "* " + incidentId + "," + currentState.getStateName() + "," + title + "," + caller + "," + reopenCount + "," + owner + "," + statusDetails + getIncidentLogMessages();
 	}
 	/**
 	 * Updates the incident based on the current state and the given command

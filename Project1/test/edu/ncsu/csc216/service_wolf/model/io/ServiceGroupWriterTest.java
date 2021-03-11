@@ -68,5 +68,12 @@ public class ServiceGroupWriterTest {
 		assertEquals(a.get(2).getServiceGroupName(), t.get(2).getServiceGroupName());
 		assertEquals(a.get(2).getIncidents().get(0).getTitle(), t.get(2).getIncidents().get(0).getTitle());
 		assertEquals(a.get(2).getIncidents().get(0).getIncidentLogMessages(), t.get(2).getIncidents().get(0).getIncidentLogMessages());
+		ServiceGroup tsg = new ServiceGroup("Test Service Group");
+		ArrayList<String> log = new ArrayList<String>();
+		log.add("message1");
+		tsg.addIncident(new Incident(1, "New", "title", "caller", 0, Incident.UNOWNED, Incident.NO_STATUS, log));
+		ArrayList<ServiceGroup> tsglist = new ArrayList<ServiceGroup>();
+		tsglist.add(tsg);
+		ServiceGroupWriter.writeServiceGroupsToFile("test-files/actual_new.txt", tsglist);
 	}
 }
