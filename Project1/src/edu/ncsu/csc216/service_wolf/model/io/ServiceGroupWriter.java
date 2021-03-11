@@ -24,7 +24,7 @@ public class ServiceGroupWriter {
 			for (int i = 0; i < grouplist.size(); i++) {
 			    fileWriter.println("# " + grouplist.get(i).getServiceGroupName());
 			    for(int j = 0; j < grouplist.get(i).getIncidents().size(); j++) {
-				    fileWriter.println(grouplist.get(i).getIncidents().get(j).toString().substring(0, grouplist.get(i).getIncidents().get(j).toString().length()-1));
+				    fileWriter.println(grouplist.get(i).getIncidents().get(j).toString().substring(0, grouplist.get(i).getIncidents().get(j).toString().length() - 1));
 			    }
 			}
 			fileWriter.close();

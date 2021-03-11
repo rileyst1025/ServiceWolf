@@ -34,9 +34,9 @@ public class ServiceGroupsReader {
 			if(!"".equals(serviceGroupTokens[0])) {
 				return new ArrayList<ServiceGroup>();
 			}
-			String[] newTokens = new String[serviceGroupTokens.length-1];
+			String[] newTokens = new String[serviceGroupTokens.length - 1];
 			for(int i = 0; i < newTokens.length; i++) {
-				newTokens[i] = serviceGroupTokens[i+1];
+				newTokens[i] = serviceGroupTokens[i + 1];
 			}
 			serviceGroupTokens = newTokens;
 			for(int i = 0; i < serviceGroupTokens.length; i++) {
