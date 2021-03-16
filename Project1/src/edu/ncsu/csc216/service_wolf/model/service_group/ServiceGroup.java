@@ -37,6 +37,7 @@ public class ServiceGroup {
 	/**
 	 * Sets the service groups name to the given name
 	 * @param name the name to set
+	 * @throws IllegalArgumentException if given name is null or empty
 	 */
 	public void setServiceGroupName(String name) {
 		if(name == null || "".equals(name)) {
@@ -54,6 +55,7 @@ public class ServiceGroup {
 	/**
 	 * Adds the given incident to the service group's list
 	 * @param incident the incident to add
+	 * @throws IllegalArgumentException if incident already exists in the service group
 	 */
 	public void addIncident(Incident incident) {
 		boolean notadd = true;

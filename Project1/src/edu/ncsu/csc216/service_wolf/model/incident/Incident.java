@@ -113,6 +113,7 @@ public class Incident {
 		/**
 		 * Updates the incidents current state based on the command and functionality of a new incident
 		 * @param command the command to apply to the new incident
+		 * @throws UnsupportedOperationException if the command is not assign or cancel
 		 */
 		public void updateState(Command command) {
 			if(Command.CommandValue.ASSIGN.equals(command.getCommand())) {
@@ -146,6 +147,7 @@ public class Incident {
 		/**
 		 * Updates the state of the incident based on the given command and functionality of the in progress incident
 		 * @param command the command to apply to the in progress incident
+		 * @throws UnsupportedOperationException if command is not assign, hold, resolve, or cancel
 		 */
 		public void updateState(Command command) {
 			if(Command.CommandValue.ASSIGN.equals(command.getCommand())) {
@@ -189,6 +191,7 @@ public class Incident {
 		/**
 		 * Updates the incidents current state based on the command and functionality of an on hold incident
 		 * @param command the command to apply to the on hold incident
+		 * @throws UnsupportedOperationException if command is not investigate
 		 */
 		public void updateState(Command command) {
 			if(Command.CommandValue.INVESTIGATE.equals(command.getCommand())) {
@@ -217,6 +220,7 @@ public class Incident {
 		/**
 		 * Updates the incidents current state based on the command and functionality of a resolved incident
 		 * @param command the command to apply to the resolved incident
+		 * @throws UnsupportedOperationException if command is not reopen or cancel
 		 */
 		public void updateState(Command command) {
 			if(Command.CommandValue.REOPEN.equals(command.getCommand())) {
@@ -252,6 +256,7 @@ public class Incident {
 		/**
 		 * Updates the incidents current state based on the command and functionality of a canceled incident
 		 * @param command the command to apply to the canceled incident
+		 * @throws UnsupportedOperationException no matter what because a canceled incident cannot be updated
 		 */
 		public void updateState(Command command) {
 			throw new UnsupportedOperationException();
@@ -290,6 +295,7 @@ public class Incident {
 	 * @param owner the owner to set
 	 * @param statusDetails the status details to set
 	 * @param incidentLog the incident log to set
+	 * @throws IllegalArgumentException if incident log is empty or null
 	 */
 	public Incident(int id, String state, String title, String caller, int reopenCount, String owner, String statusDetails, ArrayList<String> incidentLog) {
 		setId(id);

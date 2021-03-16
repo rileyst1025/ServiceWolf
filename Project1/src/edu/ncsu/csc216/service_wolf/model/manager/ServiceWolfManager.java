@@ -43,6 +43,7 @@ public class ServiceWolfManager {
 	/**
 	 * Adds a new service group to the service group list with the given name
 	 * @param serviceGroupName the name of the new service group to add
+	 * @throws IllegalArgumentException if service group name is null or empty
 	 */
 	public void addServiceGroup(String serviceGroupName) {
 		if(serviceGroupName == null || "".equals(serviceGroupName)) {
@@ -74,6 +75,7 @@ public class ServiceWolfManager {
 	/**
 	 * Checks to see if the service group name is a duplicate of a previously added service group
 	 * @param name the name to check if duplicate
+	 * @throws IllegalArgumentException if given name is a  duplicate
 	 */
 	private void checkDuplicateServiceName(String name) {
 		for(int i = 0; i < serviceGroups.size(); i++) {
@@ -85,6 +87,7 @@ public class ServiceWolfManager {
 	/**
 	 * Changes the managers current service group's name to the given name
 	 * @param updateName the name to change to
+	 * @throws IllegalArgumentException if given name is empty or null
 	 */
 	public void editServiceGroup(String updateName) {
 		if(updateName == null || "".equals(updateName)) {
@@ -101,6 +104,7 @@ public class ServiceWolfManager {
 	}
 	/**
 	 * Deletes the manager's current service group
+	 * @throws IllegalArgumentException if there is no current service group
 	 */
 	public void deleteServiceGroup() {
 		if(currentServiceGroup == null) {
@@ -122,6 +126,7 @@ public class ServiceWolfManager {
 	/**
 	 * Makes the service group with the given name the current service group
 	 * @param serviceGroupName the name of the service group to make the current service group
+	 * @throws IllegalArgumentException if given name is not found in service group list
 	 */
 	public void loadServiceGroup(String serviceGroupName) {
 		boolean notadd = true;
@@ -144,6 +149,7 @@ public class ServiceWolfManager {
 	/**
 	 * Gets the current service group's name
 	 * @return the name of the current service group
+	 * @throws IllegalArgumentException if there is no current service group
 	 */
 	public String getServiceGroupName() {
 		if(currentServiceGroup == null) {
@@ -188,6 +194,7 @@ public class ServiceWolfManager {
 	/**
 	 * Saves the managers service group list to a file with the given filename
 	 * @param filename the name of the file to save the list to
+	 * @throws IllegalArgumentException if there is no current service group or if there are no incidents in the current service group
 	 */
 	public void saveToFile(String filename) {
 		if(currentServiceGroup == null || currentServiceGroup.getIncidents().size() == 0) {

@@ -21,6 +21,7 @@ public class Command {
 	 * @param command the type of command to set, one of 6 values (Assign, Hold, Investigate, Resolve, Reopen, Cancel)
 	 * @param commandInformation the information about the users reason for the command, can be null for commands that don't need further information
 	 * @param commandMessage the message from the user to set
+	 * @throws IllegalArgumentException if any of the command parameters are invalid or null
 	 */
 	public Command(CommandValue command, String commandInformation, String commandMessage) {
 		if(command == null) {

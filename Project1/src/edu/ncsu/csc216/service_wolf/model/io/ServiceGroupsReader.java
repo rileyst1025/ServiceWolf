@@ -19,6 +19,7 @@ public class ServiceGroupsReader {
 	 * Reads in and returns an array of service groups and their assigned incidents from a file with the given filename
 	 * @param filename the name of the file to read from
 	 * @return a list of the service groups from the file
+	 * @throws IllegalArgumentException if file is unable to be loaded
 	 */
 	public static ArrayList<ServiceGroup> readServiceGroupsFile(String filename){
 		try {
@@ -73,6 +74,7 @@ public class ServiceGroupsReader {
 	 * Creates an incident based on the given line of text
 	 * @param i the line of text to create the incident from
 	 * @return the incident created from the line
+	 * @throws IllegalArgumentException if not enough variables are read in
 	 */
 	private static Incident processIncident(String i) {
 		String[] incidentLines = i.split("\\r?\\n?[-]");

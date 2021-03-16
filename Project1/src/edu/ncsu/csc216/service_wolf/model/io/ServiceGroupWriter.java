@@ -17,6 +17,7 @@ public class ServiceGroupWriter {
 	 * Writes a given list of service groups to a file with the given filename
 	 * @param filename the name of the file to write to
 	 * @param grouplist the list of service groups to write to the file
+	 * @throws IllegalArgumentException if file name is invalid
 	 */
 	public static void writeServiceGroupsToFile(String filename, ArrayList<ServiceGroup> grouplist) {
 		try {
